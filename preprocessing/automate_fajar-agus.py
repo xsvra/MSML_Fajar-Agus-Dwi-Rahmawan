@@ -95,7 +95,7 @@ def preprocess_data(input_path, output_dir):
 # Entry Point
 # ======================
 if __name__ == "__main__":
-    INPUT_PATH = "../namadataset_raw/bmw.csv"
-    OUTPUT_DIR = "namadataset_preprocessing"
+    INPUT_PATH = "../bmw_raw/bmw.csv"
+    OUTPUT_DIR = "bmw_preprocessing"
 
     preprocess_data(INPUT_PATH, OUTPUT_DIR)
