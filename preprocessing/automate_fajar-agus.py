@@ -38,15 +38,11 @@ def preprocess_data(input_path, output_dir):
     # ======================
     # 2. Data Cleaning
     # ======================
-
-    # Hapus duplikat
     df = df.drop_duplicates()
 
-    # Ganti engineSize = 0 dengan median (tanpa nilai 0)
     median_engine_size = df.loc[df["engineSize"] > 0, "engineSize"].median()
     df.loc[df["engineSize"] == 0, "engineSize"] = median_engine_size
 
-    # Hapus outlier
     num_cols = ["price", "mileage", "tax", "mpg", "engineSize"]
     df = remove_outliers_iqr(df, num_cols)
 
@@ -60,13 +56,24 @@ def preprocess_data(input_path, output_dir):
     )
 
     # ======================
-    # 4. Split Feature & Target
+    # 4. NORMALISASI NAMA KOLOM (WAJIB)
+    # ======================
+    df_encoded.columns = (
+        df_encoded.columns
+        .str.replace(r"_\s+", "_", regex=True)   # "_ 2" → "_2"
+        .str.replace(r"\s+", "_", regex=True)    # spasi → "_"
+        .str.replace("-", "_", regex=False)      # "-" → "_"
+        .str.lower()                             # lowercase
+    )
+
+    # ======================
+    # 5. Split Feature & Target
     # ======================
     X = df_encoded.drop(columns="price")
     y = df_encoded["price"]
 
     # ======================
-    # 5. Scaling
+    # 6. Scaling
     # ======================
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
@@ -75,7 +82,7 @@ def preprocess_data(input_path, output_dir):
     processed_df["price"] = y.values
 
     # ======================
-    # 6. Save Dataset
+    # 7. Save Dataset
     # ======================
     os.makedirs(output_dir, exist_ok=True)
 
@@ -87,6 +94,7 @@ def preprocess_data(input_path, output_dir):
     processed_df.to_csv(output_path, index=False)
 
     print(f"[INFO] Dataset preprocessing berhasil disimpan di: {output_path}")
+    print(f"[INFO] Total fitur: {processed_df.shape[1] - 1}")
 
     return processed_df
 
