@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/GUNADARMA%20UNIVERSITY/Asah%20Dicoding/Project/Deployment/MSML_Fajar-Agus-Dwi-Rahmawan/Membangun_model/mlruns/609040654955511580/1d5503a973e54bce891031776671911a/artifacts
+end_time: 1766389974416
+entry_point_name: ''
+experiment_id: '609040654955511580'
+lifecycle_stage: active
+run_id: 1d5503a973e54bce891031776671911a
+run_name: RandomForest_Tuning
+run_uuid: 1d5503a973e54bce891031776671911a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1766389962872
+status: 4
+tags: []
+user_id: acer
