@@ -1,0 +1,38 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.11
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.2
+mlflow_version: 2.11.3
+model_size_bytes: 33815980
+model_uuid: e7a0f39e74694f01ae13ab26e8d40c0d
+run_id: 7f34bdc740314e9ab008b65c896530e4
+signature:
+  inputs: '[{"type": "double", "name": "year", "required": true}, {"type": "double",
+    "name": "mileage", "required": true}, {"type": "double", "name": "tax", "required":
+    true}, {"type": "double", "name": "mpg", "required": true}, {"type": "double",
+    "name": "enginesize", "required": true}, {"type": "double", "name": "model_2_series",
+    "required": true}, {"type": "double", "name": "model_3_series", "required": true},
+    {"type": "double", "name": "model_4_series", "required": true}, {"type": "double",
+    "name": "model_5_series", "required": true}, {"type": "double", "name": "model_6_series",
+    "required": true}, {"type": "double", "name": "model_x1", "required": true}, {"type":
+    "double", "name": "model_x2", "required": true}, {"type": "double", "name": "model_x3",
+    "required": true}, {"type": "double", "name": "model_x4", "required": true}, {"type":
+    "double", "name": "model_x5", "required": true}, {"type": "double", "name": "model_z4",
+    "required": true}, {"type": "double", "name": "transmission_manual", "required":
+    true}, {"type": "double", "name": "transmission_semi_auto", "required": true},
+    {"type": "double", "name": "fueltype_hybrid", "required": true}, {"type": "double",
+    "name": "fueltype_petrol", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2025-12-23 14:16:44.334388'
